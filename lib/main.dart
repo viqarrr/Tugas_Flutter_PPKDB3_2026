@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masibelajar/day%206/center.dart';
+import 'package:flutter_masibelajar/day%206/container.dart';
+import 'package:flutter_masibelajar/day%206/expanded.dart';
+import 'package:flutter_masibelajar/day%206/image.dart';
+import 'package:flutter_masibelajar/day%206/layouting.dart';
+import 'package:flutter_masibelajar/day%206/spacer.dart';
 import 'package:flutter_masibelajar/day_5/layouting.dart';
 import 'package:flutter_masibelajar/day_5/scaffold.dart';
 import 'package:flutter_masibelajar/day_5/styling.dart';
 import 'package:flutter_masibelajar/tugas/tugas_day_5.dart';
+import 'package:flutter_masibelajar/tugas/tugas_day_6.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +42,7 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         fontFamily: 'SF Pro',
       ),
-      home: TugasDay5(),
+      home: ProfilePage(),
     );
   }
 }
