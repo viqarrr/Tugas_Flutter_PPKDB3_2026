@@ -7,6 +7,7 @@ class TugasDay8 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text(
           "Registrasi & Layanan",
@@ -23,6 +24,10 @@ class TugasDay8 extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(32),
               margin: EdgeInsets.symmetric(vertical: 12, horizontal: 32),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: Column(
                 spacing: 16,
                 children: [
@@ -37,6 +42,7 @@ class TugasDay8 extends StatelessWidget {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
                           ),
                           fillColor: Color(0x258FC858),
                           filled: true,
@@ -53,6 +59,7 @@ class TugasDay8 extends StatelessWidget {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
                           ),
                           fillColor: Color(0x258FC858),
                           filled: true,
@@ -70,6 +77,7 @@ class TugasDay8 extends StatelessWidget {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
                           ),
                           fillColor: Color(0x258FC858),
                           filled: true,
@@ -88,6 +96,7 @@ class TugasDay8 extends StatelessWidget {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
                           ),
                           fillColor: Color(0x258FC858),
                           filled: true,
