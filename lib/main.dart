@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_masibelajar/day_9/stateful.dart';
+import 'package:flutter_masibelajar/tugas/tugas_day_9.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         fontFamily: 'SF Pro',
       ),
-      home: StatefulDay9(),
+      home: TugasDay9(),
       // home: StackDay8(),
     );
   }
