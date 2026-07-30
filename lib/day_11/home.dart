@@ -18,6 +18,11 @@ class HomeRoutingDay11 extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(
+            "Log In Biasa",
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 48),
           pushButton(
             context,
             "Push",

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masibelajar/day_11/abis_home.dart';
+import 'package:flutter_masibelajar/day_11/home.dart';
+import 'package:flutter_masibelajar/day_11/routing.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -148,6 +151,14 @@ class LoginPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeRoutingDay11(),
+                            ),
+                          );
+                        },
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -201,6 +212,14 @@ class LoginPage extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RoutingDay11(),
+                                ),
+                              );
+                            },
                           ),
                           CenteredButton(
                             backgroundColor: Colors.white,
@@ -235,6 +254,15 @@ class LoginPage extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      SetelahHomeRoutingDay11(),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -311,6 +339,7 @@ class CenteredButton extends StatelessWidget {
   final BoxBorder? border;
   final BorderRadiusGeometry borderRadius;
   final List<BoxShadow>? boxShadow;
+  final void Function()? onPressed;
 
   const CenteredButton({
     super.key,
@@ -320,6 +349,7 @@ class CenteredButton extends StatelessWidget {
     this.padding,
     this.border,
     this.boxShadow,
+    this.onPressed,
   });
 
   @override
@@ -330,9 +360,10 @@ class CenteredButton extends StatelessWidget {
         borderRadius: borderRadius,
         boxShadow: boxShadow,
       ),
-      child: TextButton(
-        onPressed: () {},
+      child: ElevatedButton(
+        onPressed: onPressed,
         style: TextButton.styleFrom(
+          elevation: 0,
           padding: padding,
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(borderRadius: borderRadius),
