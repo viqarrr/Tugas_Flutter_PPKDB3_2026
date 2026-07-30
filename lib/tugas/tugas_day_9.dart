@@ -54,8 +54,8 @@ class _TugasDay9State extends State<TugasDay9> {
                   showElevatedButtonText = !showElevatedButtonText;
                 });
               },
-              style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.cyan[600]),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.cyan[600],
               ),
               child: Text("Klik saya!", style: TextStyle(color: Colors.white)),
             ),

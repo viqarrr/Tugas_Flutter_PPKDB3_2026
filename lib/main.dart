@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_masibelajar/tugas/tugas_day_9.dart';
+import 'package:flutter_masibelajar/tugas/tugas_6_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,10 +30,16 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-        fontFamily: 'SF Pro',
+        fontFamily: 'Inter',
       ),
-      home: TugasDay9(),
-      // home: StackDay8(),
+
+      // //Routes
+      // initialRoute: "/",
+      // routes: {
+      //   "/": (context) => RoutingDay11(),
+      //   "/home": (context) => HomeRoutingDay11(),
+      // },
+      home: LoginPage(),
     );
   }
 }
