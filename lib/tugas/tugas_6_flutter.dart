@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_11/abis_home.dart';
-import 'package:flutter_masibelajar/day_11/home.dart';
 import 'package:flutter_masibelajar/day_11/routing.dart';
+import 'package:flutter_masibelajar/day_13/drawer.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -116,12 +116,22 @@ class LoginPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Text(
-                            "Forgot Password?",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff4d81e7),
+                          TextButton(
+                            onPressed: () {
+                              Scaffold.of(context).openDrawer();
+                            },
+                            style: ButtonStyle(
+                              padding: WidgetStatePropertyAll(
+                                EdgeInsetsGeometry.zero,
+                              ),
+                            ),
+                            child: Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xff4d81e7),
+                              ),
                             ),
                           ),
                         ],
@@ -155,7 +165,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeRoutingDay11(),
+                              builder: (context) => DrawerDay13(),
                             ),
                           );
                         },

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TugasDay9 extends StatefulWidget {
@@ -36,7 +35,6 @@ class _TugasDay9State extends State<TugasDay9> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        leading: Icon(CupertinoIcons.arrow_left_circle),
         shape: Border(bottom: BorderSide(color: Colors.grey, width: 0.5)),
       ),
       body: Center(
