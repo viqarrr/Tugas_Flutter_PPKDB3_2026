@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_13/input_widget.dart';
+import 'package:flutter_masibelajar/day_15/list.dart';
+import 'package:flutter_masibelajar/day_15/list_model.dart';
+import 'package:flutter_masibelajar/day_15/list_of_map.dart';
+import 'package:flutter_masibelajar/day_16/text_form_field.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
 import 'package:flutter_masibelajar/tugas/tugas_day_5.dart';
 import 'package:flutter_masibelajar/tugas/tugas_day_8.dart';
@@ -27,6 +31,10 @@ class _DrawerDay13State extends State<DrawerDay13> {
     TugasDay8(),
     TugasDay5(),
     InputWidget(),
+    ListDataDay14(),
+    ListOfMapDay15(),
+    ListOfModelDay15(),
+    TextFormFieldDay16(),
   ];
 
   @override
@@ -78,6 +86,34 @@ class _DrawerDay13State extends State<DrawerDay13> {
               title: Text("Input Widget"),
               onTap: () {
                 changeBottom(3);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.list),
+              title: Text("List"),
+              onTap: () {
+                changeBottom(4);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.list),
+              title: Text("List of Map"),
+              onTap: () {
+                changeBottom(5);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.list),
+              title: Text("List of Model"),
+              onTap: () {
+                changeBottom(6);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.text_fields),
+              title: Text("Text Form Field"),
+              onTap: () {
+                changeBottom(7);
               },
             ),
           ],
