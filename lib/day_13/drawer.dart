@@ -128,6 +128,21 @@ class _DrawerDay13State extends State<DrawerDay13> {
                   onTap: () {
                     PreferenceHandler.logOut();
                     context.pushAndRemoveAll(LoginDay17());
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        duration: Duration(milliseconds: 1200),
+                        backgroundColor: Color(0xff1C3F32),
+                        content: Center(
+                          child: Text(
+                            "Berhasil Logout.",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
                   },
                 ),
               ],
