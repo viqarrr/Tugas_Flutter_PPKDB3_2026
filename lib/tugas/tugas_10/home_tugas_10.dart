@@ -8,6 +8,7 @@ class HomeTugas10 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
         padding: EdgeInsets.all(32),
         child: Column(

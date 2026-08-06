@@ -228,11 +228,9 @@ class _Tugas10FlutterState extends State<Tugas10Flutter> {
                                             ],
                                           ),
                                         if (kotaAsalController
-                                                .value
-                                                .text
-                                                .isEmpty ||
-                                            !emailController.value.text
-                                                .contains("@"))
+                                            .value
+                                            .text
+                                            .isEmpty)
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,

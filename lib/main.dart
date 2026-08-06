@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_masibelajar/tugas/tugas_10/tugas_10_flutter.dart';
+import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
+import 'package:flutter_masibelajar/tugas/tugas_11/splash_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting("id_ID", null);
+  await PreferenceHandler.init();
   runApp(const MyApp());
 }
 
@@ -42,7 +45,7 @@ class MyApp extends StatelessWidget {
       //   "/": (context) => RoutingDay11(),
       //   "/home": (context) => HomeRoutingDay11(),
       // },
-      home: Tugas10Flutter(),
+      home: SplashScreen(),
     );
   }
 }
