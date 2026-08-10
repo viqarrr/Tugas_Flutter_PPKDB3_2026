@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
+import 'package:flutter_masibelajar/day_18/views/login.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
 import 'package:flutter_masibelajar/tugas/tugas_7/category.dart';
 import 'package:flutter_masibelajar/tugas/tugas_7/dark_mode.dart';
@@ -86,6 +88,32 @@ class _HomePageState extends State<HomePage> {
               title: Text("Atur Pengingat"),
               onTap: () {
                 changeBottom(4);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout, size: 16, color: Colors.red),
+              title: Text(
+                "Log Out",
+                style: TextStyle(fontSize: 16, color: Colors.red),
+              ),
+              onTap: () {
+                PreferenceHandler.logOut();
+                context.pushAndRemoveAll(LoginDay18());
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    duration: Duration(milliseconds: 1200),
+                    backgroundColor: Color(0xff1C3F32),
+                    content: Center(
+                      child: Text(
+                        "Berhasil Logout.",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 32,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
               },
             ),
           ],

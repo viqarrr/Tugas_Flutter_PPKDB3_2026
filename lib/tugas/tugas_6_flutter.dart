@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_11/abis_home.dart';
 import 'package:flutter_masibelajar/day_11/routing.dart';
 import 'package:flutter_masibelajar/day_13/drawer.dart';
+import 'package:flutter_masibelajar/day_18/views/login.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -338,48 +339,6 @@ class LoginPage extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-}
-
-class CenteredButton extends StatelessWidget {
-  final Color backgroundColor;
-  final Widget content;
-  final EdgeInsetsGeometry? padding;
-  final BoxBorder? border;
-  final BorderRadiusGeometry borderRadius;
-  final List<BoxShadow>? boxShadow;
-  final void Function()? onPressed;
-
-  const CenteredButton({
-    super.key,
-    required this.backgroundColor,
-    required this.content,
-    required this.borderRadius,
-    this.padding,
-    this.border,
-    this.boxShadow,
-    this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: border,
-        borderRadius: borderRadius,
-        boxShadow: boxShadow,
-      ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          elevation: 0,
-          padding: padding,
-          backgroundColor: backgroundColor,
-          shape: RoundedRectangleBorder(borderRadius: borderRadius),
-        ),
-        child: Center(child: content),
-      ),
     );
   }
 }

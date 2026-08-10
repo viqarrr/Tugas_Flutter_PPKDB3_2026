@@ -5,9 +5,10 @@ import 'package:flutter_masibelajar/day_11/routing.dart';
 import 'package:flutter_masibelajar/day_13/drawer.dart';
 import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
+import 'package:flutter_masibelajar/tugas/tugas_12/widgets/centered_button.dart';
 
-class LoginDay11 extends StatelessWidget {
-  const LoginDay11({super.key});
+class LoginDay17 extends StatelessWidget {
+  const LoginDay17({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -336,48 +337,6 @@ class LoginDay11 extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-}
-
-class CenteredButton extends StatelessWidget {
-  final Color backgroundColor;
-  final Widget content;
-  final EdgeInsetsGeometry? padding;
-  final BoxBorder? border;
-  final BorderRadiusGeometry borderRadius;
-  final List<BoxShadow>? boxShadow;
-  final void Function()? onPressed;
-
-  const CenteredButton({
-    super.key,
-    required this.backgroundColor,
-    required this.content,
-    required this.borderRadius,
-    this.padding,
-    this.border,
-    this.boxShadow,
-    this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: border,
-        borderRadius: borderRadius,
-        boxShadow: boxShadow,
-      ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          elevation: 0,
-          padding: padding,
-          backgroundColor: backgroundColor,
-          shape: RoundedRectangleBorder(borderRadius: borderRadius),
-        ),
-        child: Center(child: content),
-      ),
     );
   }
 }

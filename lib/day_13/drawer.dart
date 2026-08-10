@@ -5,8 +5,8 @@ import 'package:flutter_masibelajar/day_15/list_model.dart';
 import 'package:flutter_masibelajar/day_15/list_of_map.dart';
 import 'package:flutter_masibelajar/day_16/text_form_field.dart';
 import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
+import 'package:flutter_masibelajar/day_18/views/login.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
-import 'package:flutter_masibelajar/tugas/tugas_11/login.dart';
 import 'package:flutter_masibelajar/tugas/tugas_day_5.dart';
 import 'package:flutter_masibelajar/tugas/tugas_day_8.dart';
 import 'package:flutter_masibelajar/tugas/tugas_day_9.dart';
@@ -127,7 +127,7 @@ class _DrawerDay13State extends State<DrawerDay13> {
                   ),
                   onTap: () {
                     PreferenceHandler.logOut();
-                    context.pushAndRemoveAll(LoginDay17());
+                    context.pushAndRemoveAll(LoginDay18());
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         duration: Duration(milliseconds: 1200),

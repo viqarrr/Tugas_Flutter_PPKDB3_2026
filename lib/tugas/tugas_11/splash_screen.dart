@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_masibelajar/day_13/drawer.dart';
 import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
+import 'package:flutter_masibelajar/day_18/views/bottom_nav.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
-import 'package:flutter_masibelajar/tugas/tugas_11/login.dart';
+import 'package:flutter_masibelajar/tugas/tugas_12/pages/welcome.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,17 +22,18 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds: 2));
 
     if (PreferenceHandler.isLogin) {
-      context.push(DrawerDay13());
+      context.push(BottomNavDay18());
     } else {
-      context.push(LoginDay17());
+      context.push(Welcome());
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff1C3F32),
       body: Center(
-        child: Image.asset("assets/images/light_logo_plenty.png", width: 250),
+        child: Image.asset("assets/images/dark_logo.png", width: 250),
       ),
     );
   }
