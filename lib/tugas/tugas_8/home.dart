@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
-import 'package:flutter_masibelajar/day_18/views/login.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
+import 'package:flutter_masibelajar/tugas/tugas_12/pages/authentication.dart';
 import 'package:flutter_masibelajar/tugas/tugas_7/category.dart';
 import 'package:flutter_masibelajar/tugas/tugas_7/dark_mode.dart';
 import 'package:flutter_masibelajar/tugas/tugas_7/datepick.dart';
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
               ),
               onTap: () {
                 PreferenceHandler.logOut();
-                context.pushAndRemoveAll(LoginDay18());
+                context.pushAndRemoveAll(Authentication());
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     duration: Duration(milliseconds: 1200),

@@ -33,6 +33,7 @@ class _LoginDay18State extends State<LoginDay18> {
 
     final pengguna = UserModelSQL(
       email: user,
+      nomorHp: user,
       password: pass,
       nama: "null",
       username: "null",
@@ -55,7 +56,7 @@ class _LoginDay18State extends State<LoginDay18> {
   }
 
   void login() async {
-    final email = emailC.text.trim();
+    final email = emailC.text;
     final password = passwordC.text;
 
     if (email.isEmpty || password.isEmpty) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_18/database/db_helper.dart';
 import 'package:flutter_masibelajar/day_18/models/user_model.dart';
-import 'package:flutter_masibelajar/day_18/views/detail_profile.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
+import 'package:flutter_masibelajar/tugas/tugas_12/widgets/centered_button.dart';
 
 class ProfileDay18 extends StatefulWidget {
   const ProfileDay18({super.key});
@@ -12,6 +12,11 @@ class ProfileDay18 extends StatefulWidget {
 }
 
 class _ProfileDay18State extends State<ProfileDay18> {
+  void _deleteUser(int? id) async {
+    bool isDeleted = await DBHelper().deleteUser(id!);
+    if (isDeleted) _refreshList();
+  }
+
   void _refreshList() {
     setState(() {});
   }
@@ -38,8 +43,6 @@ class _ProfileDay18State extends State<ProfileDay18> {
             ); // Center
           }
           final daftarPengguna = snapshot.data!;
-
-          print(snapshot.data!);
 
           return ListView.separated(
             separatorBuilder: (context, index) {
@@ -77,24 +80,20 @@ class _ProfileDay18State extends State<ProfileDay18> {
                 ),
                 leading: Icon(Icons.person, size: 32),
                 title: Text(
-                  daftarPengguna[index].email,
+                  daftarPengguna[index].nama,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(
-                  daftarPengguna[index].password,
+                  "@${daftarPengguna[index].username} \n"
+                  "Email: ${daftarPengguna[index].email} \n"
+                  "Nomor HP: ${daftarPengguna[index].nomorHp} \n"
+                  "Asal Kota: ${daftarPengguna[index].asalKota} \n"
+                  "Password: ${daftarPengguna[index].password} \n",
                   style: TextStyle(fontSize: 12),
                 ),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        context.push(
-                          DetailProfileDay18(user: daftarPengguna[index]),
-                        );
-                      },
-                      icon: Icon(Icons.remove_red_eye, color: Colors.blue),
-                    ),
                     IconButton(
                       onPressed: () {
                         _showBottomSheet(context, daftarPengguna[index]);
@@ -105,11 +104,51 @@ class _ProfileDay18State extends State<ProfileDay18> {
                       icon: Icon(Icons.edit, color: Colors.amber),
                     ),
                     IconButton(
-                      onPressed: () async {
-                        bool isDeleted = await DBHelper().deleteUser(
-                          daftarPengguna[index].id!,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            backgroundColor: Colors.white,
+                            content: Column(
+                              spacing: 16,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Column(
+                                  spacing: 6,
+                                  children: [
+                                    Text(
+                                      "Apakah anda yakin? aksi ini tidak dapat dbatalkan.",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            actions: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  TextButton(
+                                    onPressed: () {
+                                      context.pop();
+                                      _deleteUser(daftarPengguna[index].id!);
+                                    },
+                                    child: Text("Ya"),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      context.pop();
+                                    },
+                                    child: Text("Tidak"),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         );
-                        if (isDeleted) _refreshList();
                       },
                       icon: Icon(Icons.delete, color: Colors.red),
                     ),
@@ -124,7 +163,11 @@ class _ProfileDay18State extends State<ProfileDay18> {
   }
 
   void _showBottomSheet(BuildContext context, UserModelSQL user) {
+    final nameController = TextEditingController(text: user.nama);
+    final usernameController = TextEditingController(text: user.username);
     final emailController = TextEditingController(text: user.email);
+    final phoneController = TextEditingController(text: user.nomorHp);
+    final cityController = TextEditingController(text: user.asalKota);
     final passwordController = TextEditingController(text: user.password);
 
     showModalBottomSheet(
@@ -143,6 +186,7 @@ class _ProfileDay18State extends State<ProfileDay18> {
           ), // EdgeInsets.only
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            spacing: 16,
             children: [
               const Text(
                 'Kelola Pengguna',
@@ -150,13 +194,40 @@ class _ProfileDay18State extends State<ProfileDay18> {
               ), // Text
               const SizedBox(height: 16),
               TextField(
+                controller: nameController,
+                decoration: const InputDecoration(
+                  labelText: 'Nama',
+                  border: OutlineInputBorder(),
+                ), // InputDecoration
+              ), // TextField
+              TextField(
+                controller: usernameController,
+                decoration: const InputDecoration(
+                  labelText: 'Username',
+                  border: OutlineInputBorder(),
+                ), // InputDecoration
+              ), // TextField
+              TextField(
                 controller: emailController,
                 decoration: const InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(),
                 ), // InputDecoration
               ), // TextField
-              const SizedBox(height: 10),
+              TextField(
+                controller: phoneController,
+                decoration: const InputDecoration(
+                  labelText: 'Nomor HP',
+                  border: OutlineInputBorder(),
+                ), // InputDecoration
+              ), // TextField
+              TextField(
+                controller: cityController,
+                decoration: const InputDecoration(
+                  labelText: 'Asal Kota',
+                  border: OutlineInputBorder(),
+                ), // InputDecoration
+              ), // TextField
               TextField(
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -164,68 +235,42 @@ class _ProfileDay18State extends State<ProfileDay18> {
                   border: OutlineInputBorder(),
                 ), // InputDecoration
               ), // TextField
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                    ),
-                    icon: const Icon(Icons.edit, color: Colors.white),
-                    label: const Text(
-                      'Update',
-                      style: TextStyle(color: Colors.white),
-                    ), // Text
-                    onPressed: () async {
-                      if (user.id != null) {
-                        final updatedUser = UserModelSQL(
-                          id: user.id,
-                          email: emailController.text.trim(),
-                          password: passwordController.text,
-                          nama: "null",
-                          username: "null",
-                          asalKota: "null",
-                        ); // UserModelSQL
+              CenteredButton(
+                onPressed: () async {
+                  if (user.id != null) {
+                    final updatedUser = UserModelSQL(
+                      id: user.id,
+                      email: emailController.text.trim(),
+                      nomorHp: phoneController.text.trim(),
+                      password: passwordController.text,
+                      nama: nameController.text,
+                      username: usernameController.text,
+                      asalKota: cityController.text,
+                    ); // UserModelSQL
 
-                        bool success = await DBHelper().updateUser(updatedUser);
-                        if (success && context.mounted) {
-                          Navigator.pop(context);
-                          _refreshList();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Data berhasil diperbarui'),
-                            ), // SnackBar
-                          );
-                        }
-                      }
-                    },
-                  ), // ElevatedButton.icon
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                    ),
-                    icon: const Icon(Icons.delete, color: Colors.white),
-                    label: const Text(
-                      'Delete',
-                      style: TextStyle(color: Colors.white),
-                    ), // Text
-                    onPressed: () async {
-                      if (user.id != null) {
-                        await DBHelper().deleteUser(user.id!);
-                        if (context.mounted) {
-                          Navigator.pop(context);
-                          _refreshList();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Data berhasil dihapus'),
-                            ), // SnackBar
-                          );
-                        }
-                      }
-                    },
-                  ), // ElevatedButton.icon
-                ],
+                    bool success = await DBHelper().updateUser(updatedUser);
+                    if (success && context.mounted) {
+                      Navigator.pop(context);
+                      _refreshList();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Data berhasil diperbarui'),
+                        ), // SnackBar
+                      );
+                    }
+                  }
+                },
+                padding: EdgeInsets.symmetric(vertical: 16),
+                backgroundColor: Color(0xff1C3F32),
+                borderRadius: BorderRadius.circular(36),
+                content: Text(
+                  "Edit",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ), // Row
               const SizedBox(height: 20),
             ],

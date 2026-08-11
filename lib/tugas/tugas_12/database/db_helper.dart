@@ -40,6 +40,7 @@ class DBHelperTugas12 {
             nama TEXT,
             username TEXT UNIQUE,
             email TEXT UNIQUE,
+            nomor_telepon TEXT,
             password TEXT,
             asal_kota TEXT
           )

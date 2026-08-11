@@ -6,6 +6,7 @@ class UserModelSQL {
   final String nama;
   final String username;
   final String email;
+  final String nomorHp;
   final String password;
   final String asalKota;
   UserModelSQL({
@@ -13,6 +14,7 @@ class UserModelSQL {
     required this.nama,
     required this.username,
     required this.email,
+    required this.nomorHp,
     required this.password,
     required this.asalKota,
   });
@@ -23,6 +25,7 @@ class UserModelSQL {
       'nama': nama,
       'username': username,
       'email': email,
+      'nomor_telepon': nomorHp,
       'password': password,
       'asal_kota': asalKota,
     };
@@ -34,6 +37,7 @@ class UserModelSQL {
       nama: map['nama'] as String,
       username: map['username'] as String,
       email: map['email'] as String,
+      nomorHp: map['nomor_telepon'] as String,
       password: map['password'] as String,
       asalKota: map['asal_kota'] as String,
     );

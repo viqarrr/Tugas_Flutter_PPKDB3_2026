@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
 import 'package:flutter_masibelajar/tugas/tugas_12/multi_step_form.dart';
+import 'package:flutter_masibelajar/tugas/tugas_12/pages/login.dart';
 import 'package:flutter_masibelajar/tugas/tugas_12/widgets/centered_button.dart';
 
 class Authentication extends StatelessWidget {
@@ -10,7 +11,7 @@ class Authentication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEBF7F1),
+      // backgroundColor: Color(0xffEBF7F1),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Padding(
@@ -71,7 +72,7 @@ class Authentication extends StatelessWidget {
                   ),
                   CenteredButton(
                     onPressed: () {
-                      context.push(MultiStepForm());
+                      context.push(Login());
                     },
                     padding: EdgeInsets.symmetric(vertical: 16),
                     backgroundColor: Color(0xffE8EAED),

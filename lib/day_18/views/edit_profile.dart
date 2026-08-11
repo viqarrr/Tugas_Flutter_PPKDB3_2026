@@ -40,6 +40,7 @@ class _EditProfileDay18State extends State<EditProfileDay18> {
       username: "null",
       asalKota: "null",
       email: user,
+      nomorHp: user,
       password: pass,
     );
 
