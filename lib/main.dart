@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
-import 'package:flutter_masibelajar/tugas/tugas_11/splash_screen.dart';
+import 'package:flutter_masibelajar/tugas/tugas_15/constants/app_colors.dart';
+import 'package:flutter_masibelajar/tugas/tugas_15/views/splash.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: AppColors.background,
         fontFamily: 'Inter',
       ),
 
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
       //   "/": (context) => RoutingDay11(),
       //   "/home": (context) => HomeRoutingDay11(),
       // },
-      home: SplashScreen(),
+      home: SplashMeal(),
     );
   }
 }

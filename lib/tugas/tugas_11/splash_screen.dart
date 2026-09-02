@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
-import 'package:flutter_masibelajar/day_18/views/bottom_nav.dart';
+import 'package:flutter_masibelajar/day_32/views/post_list.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
 import 'package:flutter_masibelajar/tugas/tugas_12/pages/welcome.dart';
 
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds: 2));
 
     if (PreferenceHandler.isLogin) {
-      context.push(BottomNavDay18());
+      context.push(PostList());
     } else {
       context.push(Welcome());
     }
