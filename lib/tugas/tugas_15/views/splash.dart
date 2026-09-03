@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/extension/navigator.dart';
-import 'package:flutter_masibelajar/tugas/tugas_15/views/bottom_nav.dart';
+import 'package:flutter_masibelajar/tugas/tugas_15/views/home.dart';
 
 class SplashMeal extends StatefulWidget {
   const SplashMeal({super.key});
@@ -18,7 +18,7 @@ class _SplashMealState extends State<SplashMeal> {
 
   void goToLogin() async {
     await Future.delayed(Duration(seconds: 2));
-    context.push(BottomNavMeal());
+    context.push(HomeMeal());
   }
 
   @override

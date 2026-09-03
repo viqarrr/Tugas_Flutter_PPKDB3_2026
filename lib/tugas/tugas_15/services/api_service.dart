@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_masibelajar/tugas/tugas_15/models/categories_model.dart';
 import 'package:flutter_masibelajar/tugas/tugas_15/models/meals_model.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -13,4 +14,12 @@ abstract class ApiService {
 
   @GET('/lookup.php')
   Future<MealsResponse> getMealDetailById({@Query('i') required String id});
+
+  @GET('/categories.php')
+  Future<Categories> getCategories();
+
+  @GET('/filter.php')
+  Future<MealsResponse> getMealsByCategory({
+    @Query('c') required String category,
+  });
 }
