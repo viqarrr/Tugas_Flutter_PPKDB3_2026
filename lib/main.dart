@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masibelajar/day_17/services/preference_handler.dart';
 import 'package:flutter_masibelajar/tugas/tugas_15/constants/app_colors.dart';
-import 'package:flutter_masibelajar/tugas/tugas_15/views/splash.dart';
+import 'package:flutter_masibelajar/tugas/tugas_16/views/auth_selection_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       //   "/": (context) => RoutingDay11(),
       //   "/home": (context) => HomeRoutingDay11(),
       // },
-      home: SplashMeal(),
+      home: AuthSelectionScreenTugas16(),
     );
   }
 }
